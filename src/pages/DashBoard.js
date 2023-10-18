@@ -56,7 +56,7 @@ export const DashBoard = () => {
 
   const handleMessage = event => {
     // console.log(event.key);
-    if(event.key === 'Enter') {
+    if(event.key === 'Enter' && message.trim()!=="") {
       // console.log("called");
       sendMessage();
     }
@@ -64,6 +64,7 @@ export const DashBoard = () => {
 
   const sendMessage = () => {
     if (message !== "") {
+      setMessage(message.trim());
       const msgData = {
         content: message,
         sender: socket?.id,
