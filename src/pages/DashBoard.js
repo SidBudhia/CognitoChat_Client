@@ -63,7 +63,7 @@ export const DashBoard = () => {
   };
 
   const sendMessage = () => {
-    if (message !== "") {
+    if (message.trim()!=="") {
       setMessage(message.trim());
       const msgData = {
         content: message,
