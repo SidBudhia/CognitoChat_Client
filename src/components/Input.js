@@ -9,6 +9,7 @@ const Input = ({
   isRequired = true,
   placeholder = "",
   value = "",
+  onKeyDown = () => {},
   onChange = () => {},
 }) => {
   return (
@@ -24,6 +25,7 @@ const Input = ({
         required={isRequired}
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
     </div>
   );

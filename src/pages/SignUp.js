@@ -45,7 +45,7 @@ const SignUp = () => {
           );
           console.log(data);
           alert("Registration Successful");
-          navigate("/login");
+          navigate("/");
         } catch (err) {
           console.log(err);
           alert(err.response.data);
@@ -119,7 +119,7 @@ const SignUp = () => {
           Already a User?
           <span
             className=" text-primary cursor-pointer underline"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/")}
           >
             Sign In
           </span>

@@ -54,6 +54,14 @@ export const DashBoard = () => {
     }
   };
 
+  const handleMessage = event => {
+    // console.log(event.key);
+    if(event.key === 'Enter') {
+      // console.log("called");
+      sendMessage();
+    }
+  };
+
   const sendMessage = () => {
     if (message !== "") {
       const msgData = {
@@ -109,7 +117,8 @@ export const DashBoard = () => {
           <Input
             placeholder="Type a message..."
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e)=>setMessage(e.target.value)}
+            onKeyDown={handleMessage}
             className="w-[90%]"
             inputClassName="p-4 border-0 shadow-md rounded-full bg-light focus:ring-0 focus:border-0 outline-none"
           />
