@@ -32,7 +32,7 @@ export const DashBoard = () => {
     socket?.on("disconn", ()=>{
 
       setConnection("New");
-      setStatus("Disconneted");
+      setStatus("Disconnected");
     })
 
     socket?.on("chat", (msgData)=>{
@@ -56,7 +56,10 @@ export const DashBoard = () => {
 
   const handleMessage = event => {
     // console.log(event.key);
-    if(event.key === 'Enter' && message.trim()!=="") {
+    if(message.trim()=="" || status==="Waiting" || status==="Disconnected") {
+      return;
+    }
+    else if(event.key === 'Enter' && message.trim()!=="") {
       // console.log("called");
       sendMessage();
     }
@@ -125,7 +128,7 @@ export const DashBoard = () => {
           />
           <div
             className={`ml-4 p-2 cursor-pointer bg-light rounded-full  ${
-              (!message || status==="Waiting" || status==="Disconnected") && "pointer-events-none"
+              (message.trim()=="" || status==="Waiting" || status==="Disconnected") && "pointer-events-none"
             }`}
             onClick={() => sendMessage()}
           >
